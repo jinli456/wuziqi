@@ -80,3 +80,37 @@ body{
     /*padding: 10px 20px;*/
     color:#fff;
 }
+.baipan {
+  width: 200px;
+  height: 200px;
+  background: url(bai.png);
+  background-size: cover;
+  position: absolute;
+  top: 70px;
+  right: 180px; }
+
+.heipan {
+  width: 200px;
+  height: 200px;
+  background: url(hei.png);
+  background-size: cover;
+  position: absolute;
+  bottom: 70px;
+  right: 180px; }
+
+.jsq {
+  width: 230px;
+  height: 110px;
+  background: url(sj.png);
+  background-size: cover;
+  position: absolute;
+  top: 270px;
+  right: 150px; }
+
+.jsq span {
+  margin-left: 60px;
+  text-align: center;
+  line-height: 110px;
+  font-size: 60px;
+  font-family: "微软雅黑";
+  color: #fff; }

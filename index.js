@@ -219,6 +219,7 @@ $(function(){
             drawChess(position,'black');
             drawChess(AI(),'white');
             if(check(position,"black")>=5){
+                clearInterval(tt);
                 alert("黑棋赢");
                 if(confirm('是否生成棋谱')){
                     review();
@@ -228,6 +229,7 @@ $(function(){
             }
 
                 if(check(AI(),"white")>5){
+                    clearInterval(tt);
                     alert("白棋赢");
                     if(confirm('是否生成棋谱')){
                         review();
@@ -240,6 +242,7 @@ $(function(){
         if(flag){
             drawChess(position,'black');
             if(check(position,"black")>=5){
+                clearInterval(tt);
                 alert("黑棋赢");
                 if(confirm('是否生成棋谱')){
                     review();
@@ -251,6 +254,7 @@ $(function(){
         }else{
             drawChess(position,'white')
             if(check(position,"white")>=5){
+                clearInterval(tt);
                 alert("白棋赢");
                 if(confirm('是否生成棋谱')){
                     review();
@@ -270,18 +274,45 @@ $(function(){
         draw();
     }
     $(".nav").on('click',function () {
+        clearInterval(tt);
+        $(".jsq span").html("0:00");
         restart();
     })
     var ai=false;
     $("#ai").on('click',function () {
         ai=!ai
+        clearInterval(tt);
+        $(".jsq span").html("0:00");
         ctx.clearRect(0,0,width,width);
         blocks={};
         draw();
         $(this).toggleClass("active");
     })
-     /*$(".left").on("click",".one",function () {
-         $(this).addClass("active");
+     $(".left").on("click",".one",function () {
+         jishi();
      })
-*/
+
+/*计时器*/
+var hei = {};
+    var bai = {};
+    var kaiguan = true;
+    var isAi=true;
+    var time = 0;
+    var  min=0;
+    var second=0;
+    $(".jsq span").html("0:00");
+    function jishi(){
+        tt=setInterval(function(){
+            time +=1;
+            second=time%60;
+            if(time%60 == 0){
+                min = parseInt(min);
+                min += 1;
+                min = (min<10)?'0'+min:min;
+            }
+            second = (second<10)?'0'+second:second;
+            $(".jsq span").html(min +':'+second);
+
+        },1000);
+    }
 })
